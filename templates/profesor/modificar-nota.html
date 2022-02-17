@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block header %}
+<h1>{% block title %}Modificar nota{% endblock %}</h1>
+{% endblock %}
+
+
+{% block content %}
+<section class="flex">
+    <div class="box">
+        <form method="post">
+            <h1 style="text-align: center;">Editar notas</h1>
+            <div class="form-group">
+                <label for="nota_uno">Nota 1</label>
+                <input name="nota_uno" type="number" id="nota_uno" max="10" min="1" value={{nota_uno}}  required>
+            </div>
+            <div class="form-group">
+                <label for="nota_dos">Nota 2</label>
+                <input name="nota_dos" type="number" id="nota_dos" max="10" min="1" value={{nota_dos}} required>
+            </div>
+            <div class="form-group">
+                <button class="button">Editar</button>
+            </div>
+        </form>
+    </div>
+</section>
+{% endblock %}

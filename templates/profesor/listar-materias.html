@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+
+{% block header %}
+<h1>{% block title %}Listado de materias del profesor{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+{% if materias %}
+<form method="post">
+<table>
+    <tr>
+        <th>Id</th>
+        <th>Nombre</th>
+        <th>Cuatrimestre</th>
+        <th>Cupo</th>
+        <th>Año</th>
+        <th>Turno</th>
+        <th>Seleccionar</th>
+    </tr>
+    {% for materia in materias %}
+    <tr>
+        <td>{{materia['id']}}</td>
+        <td>{{materia['nombre']}}</td>
+        <td>{{materia['cuatrimestre']}}</td>
+        <td>{{materia['cupo']}}</td>
+        <td>{{materia['anio']}}</td>
+        <td>{{materia['turno']}}</td>
+        <td><input type="radio" name="materia" value={{materia['id']}} required></td>
+    </tr>
+    {% endfor %}
+</table>
+<div>
+    <button class="block">Listar alumnos</button>
+</div>
+</form>
+{% else %}
+<section class="flex">
+    <div class="box" style="text-align: center;">
+        <img src="{{ url_for('static', filename='libros.png') }}" style="width: 290px; height: 290px;">
+        <h1 style="text-align: center;">No hay materias registradas. <br> Inicie sesión como administrador <br>para registrar una materia</h1>
+    </div>
+</section>
+{% endif %}
+{% if alumnos %}
+<table>
+    <tr>
+        <th>Id</th>
+        <th>Nombre</th>
+        <th>Apellido</th>
+        <th>Email</th>
+        <th>Nota 1</th>
+        <th>Nota 2</th>
+        <th>Promedio</th>
+        <th></th>
+    </tr>
+    {% for alumno in alumnos %}
+    <tr>
+        <td>{{alumno['id']}}</td>
+        <td>{{alumno['nombre']}}</td>
+        <td>{{alumno['apellido']}}</td>
+        <td>{{alumno['email']}}</td>
+        <td>{{alumno['nota_uno']}}</td>
+        <td>{{alumno['nota_dos']}}</td>
+        <td>{{alumno['promedio']}}</td>
+        <td><a class="btn_editar" href="{{ url_for('profesor.modificar_notas' , id_alumno=alumno['id'], nota_uno=alumno['nota_uno'], nota_dos=alumno['nota_dos'], id_mat=alumno['id_mat']) }}">Editar notas</a></td>
+    </tr>
+    {% endfor %}
+</table>
+{% endif %}
+{% endblock %}

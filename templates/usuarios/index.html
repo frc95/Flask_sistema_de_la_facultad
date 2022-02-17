@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block header %}
+<h1>{% block title %}Inicio{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+<section>
+    <div class="home">
+        {% if g.user %}
+            {% if g.user['type'] == 'Alumno' %}
+                {% include 'alumno/section-alumno.html' %}
+            {% elif g.user['type'] == 'Profesor' %}
+                {% include 'profesor/section-profesor.html' %}
+            {% elif g.user['type'] == 'Administrador' %}
+                {% include 'admin/section-admin.html' %}
+            {% endif %}
+        {% else %}
+            <div class="contentIndex">
+                <h1>SISTEMA DE LA FACULTAD</h1>
+                <p>En este sistema los alumnos podran inscribirse a una materia y ver sus notas.
+                    <br> Los profesores podran ver sus alumnos y agregar una nota. 
+                    <br> Por ultimo los administradores podran dar de baja a cualquier usuario o modificar sus datos y otras mas opciones.
+                </p>
+                <div style="margin-top: 50px;">
+                    <a class="btn" href="{{ url_for('auth.login') }}"><span class="spanButton"></span>Iniciar sesión</a>
+                    <a class="btn" href="{{ url_for('usuario.create') }}"><span class="spanButton"></span>Registrarse</a>
+                </div>
+            </div>
+        {% endif %}
+    </div>
+</section>
+{% endblock %}

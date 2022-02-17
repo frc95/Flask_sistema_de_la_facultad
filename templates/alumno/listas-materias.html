@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% block header %}
+<h1>{% block title %}Listado de materias del alumno{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+{% if materias %}
+<table>
+    <tr>
+        <th>Id</th>
+        <th>Nombre</th>
+        <th>Cuatrimestre</th>
+        <th>Cupo</th>
+        <th>Año</th>
+        <th>Turno</th>
+        <th>Profesor</th>
+        <th>Nota 1</th>
+        <th>Nota 2</th>
+        <th>Promedio</th>
+    </tr>
+    {% for materia in materias %}
+    <tr>
+        <td>{{materia['id']}}</td>
+        <td>{{materia['nombre']}}</td>
+        <td>{{materia['cuatrimestre']}}</td>
+        <td>{{materia['cupo']}}</td>
+        <td>{{materia['anio']}}</td>
+        <td>{{materia['turno']}}</td>
+        <td style="text-transform: capitalize;">{{materia['nombre_profesor']}} {{materia['apellido']}}</td>
+        <td>{{materia['nota_uno']}}</td>
+        <td>{{materia['nota_dos']}}</td>
+        <td>{{materia['promedio']}}</td>
+    </tr>
+    {% endfor %}
+</table>
+{% else %}
+<section class="flex">
+    <div class="box" style="text-align: center;">
+        <img src="{{ url_for('static', filename='libros.png') }}" style="width: 290px; height: 290px;">
+        <h1 style="text-align: center;">No hay materias registradas. <br> Intente inscribirse a una materia</h1>
+    </div>
+</section>
+{% endif %}
+{% endblock %}
+

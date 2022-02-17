@@ -1,0 +1,390 @@
+body {
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('fondo.jpg');
+    margin: 0;
+    font-family: 'Rubik', sans-serif;
+}
+
+.navbarbutton {
+    transition: color 0.3s ease;
+    font-family: 'Rubik', sans-serif;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+a {
+    transition: color 0.3s ease;
+    font-family: 'Rubik', sans-serif;
+    color: #034d6c;
+    text-decoration: none;
+    font-weight: 700;
+}
+
+/*Navbar*/
+html body header {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 30px;
+    position: relative;
+    z-index: 2;
+}
+
+header .logo {
+    font-size: 20px;
+    font-family: 'Rubik', sans-serif;
+    display: flex;
+    align-items: center;
+    font-weight: 700;
+    color: #fff;
+}
+
+html body nav ul {
+    list-style-type: none;
+    font-size: 16px;
+}
+
+html body nav ul li {
+    list-style: none;
+    display: inline-block;
+    margin: 0 20px;
+    position: relative;
+}
+
+nav ul li::after{
+    content: '';
+    height: 3px;
+    width: 0%;
+    background: #f84f07;
+    position: absolute;
+    left: 0;
+    bottom: -10px;
+    transition: 0.5s;
+}
+nav ul li:hover::after{
+    width: 100%;
+}
+
+
+.home{
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+}
+
+.contentIndex{
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    text-align: center;
+}
+
+.contentIndex h1{
+    font-size: 70px;
+    margin-top: 80px;
+}
+.content p{
+    margin: 20px auto;
+    font-weight: 100;
+    line-height: 20px;
+}
+
+.home .title {
+    font-size: 24px;
+    font-family: 'Rubik', sans-serif;
+}
+
+.btn {
+    width: 200px;
+    padding: 15px 30px;
+    text-align: center;
+    margin: 20px 10px;
+    border-radius: 25px;
+    font-weight: bold;
+    border: 2px solid #f84f07;
+    background: transparent;
+    color: #fff;
+    position: relative;
+    overflow: hidden;
+}
+
+.spanButton{
+    background: #f84f07;
+    height: 100%;
+    width: 0;
+    border-radius: 25px;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    z-index: -1;
+    transition: 0.3s;
+}
+
+.btn:hover .spanButton{
+    width: 100%;
+}
+
+.btn:hover {
+    border: none;
+}
+
+/*Formulario*/
+.flex{
+    height: 600px; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center;
+}
+
+.box{
+    background-color: white;
+    padding: 12px 20px;
+    border-radius: 4px;
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.1);
+}
+
+.form-group{
+    margin-bottom: 15px;
+}
+
+form .form-group input {
+    border: 0;
+    height: 30px;
+    padding: 5px 15px;
+    border-radius: 30px;
+    box-shadow: 0 1px 5px #ddd;
+    outline: none;
+    width: 450px;
+    display: block;
+}
+
+form label {
+    display: inline-block;
+    margin-left: 10px;
+    margin-bottom: 10px;
+}
+
+.button{
+    font-size: 14px;
+    transition: background-color 0.5s ease;
+    background-color: #f84f07;
+    color: #fff;
+    align-self: center;
+    padding: 10px 15px;
+    border-radius: 30px;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+}
+
+.button:hover{
+    background-color: #f56c32;
+}
+
+form select {
+    background: transparent;
+    font-size: 14px;
+    height: 30px;
+    padding: 5px;
+    width: 250px;
+ }
+ form select:focus{ outline: none;}
+
+
+/*Tabla*/
+table {
+    width: 100%;
+    background-color: white;
+    border-collapse: collapse;
+}
+
+
+tr:nth-child(even) { 
+    background-color: #f2f2f2;
+}
+
+td {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+table th{
+    background-color: #f84f07;
+    color: white;
+    text-align: left;
+    padding-left: 8px;
+    padding-right: 8px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+}
+
+/*button*/
+.block {
+    display: block;
+    width: 100%;
+    border: none;
+    transition: background-color 0.5s ease;
+    background-color: #674dd4;
+    color: #fff;
+    padding: 14px 28px;
+    font-size: 16px;
+    cursor: pointer;
+    text-align: center;
+}
+
+.block:hover{
+    background-color: #7b62e3;
+}
+
+/*label*/
+.widthLabel{
+    width: 150px;
+}
+
+/*cards*/
+.center {
+    display: flex;
+    justify-content: center;
+}
+.padded {
+    padding: 20px 30px;
+}
+
+.content {
+    width: 1200px;
+}
+.row {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.card {
+    flex: 0 0 21%;
+    background-color: #fff;
+    box-shadow: 0 1px 2px #ddd;
+    border: solid 1px #ddd;
+    border-radius: 5px;
+    padding: 20px 30px;
+    color: black;
+}
+
+.third {
+    width: 360px;
+    margin: 20px;
+}
+
+.bg-white{
+    background-color: white;
+}
+
+.btn_editar{
+    
+    background-color: #2995d6;
+    color: #fff;
+    border: none;
+    padding: 5px 25px;
+    border-radius: 5px;
+    transition: 0.3s ease;
+    
+}
+
+a.btn_editar {
+    color: #fff;
+}
+
+.btn_editar:hover {
+    background-color: #2589c7;
+}
+
+.btn_eliminar{
+    
+    background-color: #e94343;
+    color: #fff;
+    border: none;
+    padding: 5px 25px;
+    border-radius: 5px;
+    transition: 0.3s ease;
+    
+}
+
+a.btn_eliminar {
+    color: #fff;
+}
+
+.btn_eliminar:hover {
+    background-color: #f50a0b;
+}
+
+
+/*Toast*/
+.wrapper{
+    border: 1px solid black;
+    width: 380px;
+    position: absolute;
+    top: 80%;
+    left: 0%;
+
+	animation: slide-in-left 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+}
+.toast{
+    width: 100%;
+    height: 80px;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 7px;
+    display: grid;
+    grid-template-columns: 1.3fr 6fr 0.5fr;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.08);
+}
+.error{
+    border-left: 8px solid #ff355b;
+}
+.error i{
+    color: #ff355b;
+}
+
+.warning{
+    border-left: 8px solid #ffc021;
+}
+.warning i{
+    color: #ffc021;
+}
+
+.container-1 i{
+    font-size: 35px;
+}
+.container-1,.container-2{
+    align-self: center;
+}
+.container-2 p:first-child{
+    font-size: 16px;
+    color: #101020;
+    font-weight: 600;
+}
+.container-2 p:last-child{
+    font-size: 12px;
+    color: #656565;
+    font-weight: 400;
+}
+
+@keyframes slide-in-left {
+    0% {
+      transform: translateX(-1000px);
+      opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+      opacity: 1;
+    }
+}
+
+
+
+
+
+
+

@@ -1,0 +1,15 @@
+<div class="center padded">
+    <div class="content padded">
+        <div class="padded">
+            <h1>Bienvenido profesor</h1>
+        </div>
+        <div class="row">
+            <div class="card third">
+                <img src="{{ url_for('static', filename='libro.png') }}" style="width: 290px; height: 290px;">
+                <h3>Listar mis materias</h3>
+                <p>Se podra ver un listado de todas las materias del profesor</p>
+                <a href="{{ url_for('profesor.listar_materias') }}">Click aqui</a>
+            </div>
+        </div>
+    </div>
+</div>

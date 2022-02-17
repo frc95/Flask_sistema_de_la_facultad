@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+
+{% block header %}
+<h1>{% block title %}Listado de usuarios{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+{% if usuarios %}
+<table>
+    <tr>
+        <th>Id</th>
+        <th>Nombre</th>
+        <th>Apellido</th>
+        <th>Email</th>
+        <th>Tipo</th>
+        <th></th>
+        <th></th>
+    </tr>
+    {% for usuario in usuarios %}
+        {% if g.user['id'] != usuario['id'] %}
+            <tr>
+                <td>{{usuario['id']}}</td>
+                <td style="text-transform: capitalize;">{{usuario['nombre']}}</td>
+                <td style="text-transform: capitalize;">{{usuario['apellido']}}</td>
+                <td>{{usuario['email']}}</td>
+                <td>{{usuario['type']}}</td>
+                <td><a class="btn_eliminar" href="{{ url_for('admin.eliminar_usuario', id_usuario=usuario['id'], tipo=usuario['type']) }}">Eliminar</a></td>
+                <td><a class="btn_editar" href="{{ url_for('admin.editar_usuario', id_usuario=usuario['id'], nombre=usuario['nombre'], apellido=usuario['apellido'], email=usuario['email']) }}">Editar</a></td>
+            </tr>
+        {% endif %}
+    {% endfor %}
+</table>
+<form method="post">
+    <div class="bg-white padded">
+        <label for="tipo">Tipo: </label>
+        <select name="tipo" id="tipo">
+            <option value="">Todos</option>
+            <option value="Alumno">Alumno</option>
+            <option value="Profesor">Profesor</option>
+            <option value="Administrador">Administrador</option>
+        </select>
+    </div>
+    <div>
+        <button class="block">Filtrar</button>
+    </div>
+</form>
+{% else %}
+<section class="flex">
+    <div class="box" style="text-align: center;">
+        <img src="{{ url_for('static', filename='team.png') }}" style="width: 290px; height: 290px;">
+        <h1 style="text-align: center;">No hay usuarios registrados. <br> Intente registrar un nuevo usuario</h1>
+    </div>
+</section>
+{% endif %}
+{% endblock %}

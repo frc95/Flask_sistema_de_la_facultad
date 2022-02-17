@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{% endblock %} - Facultad</title>
+
+    <!--Estilos-->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css')}}">
+
+    <!--Font Awesome-->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
+
+    <!--Google fonts-->
+    <!--Rubik-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway&family=Rubik:wght@700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        {% if g.user %}
+        <div class="logo"><span style="text-transform: capitalize;">{{ g.user['apellido'] }} {{ g.user['nombre'] }}</span></div>
+        {% endif %}
+        <nav>
+            <ul>
+                {% if g.user %}
+                    <li><a href="{{ url_for('usuario.index') }}" class="navbarbutton">Inicio</a></li>
+                    <li><a href="{{ url_for('auth.logout') }}" class="navbarbutton">Cerrar Sesion</a></li>
+                {% endif %}
+            </ul>
+        </nav>
+    </header>
+
+    
+    {% block content %}{% endblock %}
+    
+    <!--Toast Notifications-->
+    {% with warnings = get_flashed_messages(category_filter=["info"]) %}
+
+    {% if warnings %}
+    {% for warning in warnings %}
+    <div class="wrapper">
+        <div class="toast warning">
+            <div class="container-1">
+                <i class="fas fa-exclamation-triangle"></i>
+            </div>
+            <div class="container-2">
+                <p>Advertencia</p>
+                <p>{{ warning }}</p>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+
+    {% else %}
+    {% for message in get_flashed_messages() %}
+            <div class="wrapper">
+                <div class="toast error">
+                    <div class="container-1">
+                        <i class="fas fa-times-circle"></i>
+                    </div>
+                    <div class="container-2">
+                        <p>Error</p>
+                        <p>{{ message }}</p>
+                    </div>
+                </div>
+            </div>
+    {% endfor %}
+    {% endif %}
+    
+    {% endwith %}
+
+
+</body>
+</html>

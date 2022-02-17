@@ -1,0 +1,33 @@
+<div class="center padded">
+    <div class="content padded">
+        <div class="padded">
+            <h1>Bienvenido administrador</h1>
+        </div>
+        <div class="row">
+            <div class="card third">
+                <img src="{{ url_for('static', filename='administrador.png') }}" style="width: 290px; height: 290px;">
+                <h3>Crear administrador</h3>
+                <p>Se podra dar de alta un nuevo administrador</p>
+                <a href="{{ url_for('admin.create') }}">Click aqui</a>
+            </div>
+            <div class="card third">
+                <img src="{{ url_for('static', filename='salon-de-clases.png') }}" style="width: 290px; height: 290px;">
+                <h3>Crear materia</h3>
+                <p>Se podra dar de alta una materia para los profesores y alumnos</p>
+                <a href="{{ url_for('admin.create_materia') }}">Click aqui</a>
+            </div>
+            <div class="card third">
+                <img src="{{ url_for('static', filename='libro.png') }}" style="width: 290px; height: 290px;">
+                <h3>Listado de materias</h3>
+                <p>Se podra ver un listado de todas las materias</p>
+                <a href="{{ url_for('admin.listado_materias') }}">Click aqui</a>
+            </div>
+            <div class="card third">
+                <img src="{{ url_for('static', filename='team.png') }}" style="width: 290px; height: 290px;">
+                <h3>Listado de usuarios</h3>
+                <p>Se podra ver un listado de todos los usuarios</p>
+                <a href="{{ url_for('admin.listado_usuarios') }}">Click aqui</a>
+            </div>
+        </div>
+    </div>
+</div>

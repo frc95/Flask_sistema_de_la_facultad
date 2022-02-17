@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+
+{% block header %}
+<h1>{% block title %}Listado materias{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+<form method="post">
+<table>
+    <tr>
+        <th>Id</th>
+        <th>Nombre</th>
+        <th>Cuatrimestre</th>
+        <th>Cupo</th>
+        <th>Año</th>
+        <th>Turno</th>
+        <th>Profesor</th>
+        <th></th>
+    </tr>
+    {% for materia in materias %}
+    <tr>
+        <td>{{materia['id']}}</td>
+        <td>{{materia['nombre']}}</td>
+        <td>{{materia['cuatrimestre']}}</td>
+        <td>{{materia['cupo']}}</td>
+        <td>{{materia['anio']}}</td>
+        <td>{{materia['turno']}}</td>
+        <td style="text-transform: capitalize;">{{materia['apellido']}} {{materia['nombre_profesor']}}</td>
+        <td><input type="radio" name="materia" value={{materia['id']}} required></td>
+    </tr>
+    {% endfor %}
+</table>
+<div>
+    <button class="block">Listar alumnos</button>
+</div>
+</form>
+{% if alumnos %}
+<table>
+    <tr>
+        <th>Id</th>
+        <th>Nombre</th>
+        <th>Apellido</th>
+        <th>Email</th>
+        <th>Nota 1</th>
+        <th>Nota 2</th>
+        <th>Promedio</th>
+    </tr>
+    {% for alumno in alumnos %}
+    <tr>
+        <td>{{alumno['id']}}</td>
+        <td>{{alumno['nombre']}}</td>
+        <td>{{alumno['apellido']}}</td>
+        <td>{{alumno['email']}}</td>
+        <td>{{alumno['nota_uno']}}</td>
+        <td>{{alumno['nota_dos']}}</td>
+        <td>{{alumno['promedio']}}</td>
+    </tr>
+    {% endfor %}
+</table>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block header %}
+<h1>{% block title %}Editar materia{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+<section class="flex">
+    <div class="box">
+        <form method="post">
+            <h1 style="text-align: center;">Editar usuario</h1>
+            <div class="form-group">
+                <label for="nombre">Nombre</label>
+                <input name="nombre" type="text" id="nombre" minlength="3" required value={{nombre}}>
+            </div>
+            <div class="form-group">
+                <label for="apellido">Apellido</label>
+                <input name="apellido" type="text" id="apellido" minlength="3" required value={{apellido}}>
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input name="email" type="email" id="email" required value={{email}}>
+            </div>
+            <div class="form-group">
+                <button class="button">Editar</button>
+            </div>
+        </form>
+    </div>
+</section>
+{% endblock %}

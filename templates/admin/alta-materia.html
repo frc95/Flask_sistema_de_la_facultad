@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+
+{% block header %}
+<h1>{% block title %}Crear materia{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+<section class="flex">
+    <div class="box">
+        <form method="post">
+            <h1 style="text-align: center;">Dar de alta una materia</h1>
+            <div class="form-group">
+                <label for="nombre">Nombre</label>
+                <input name="nombre" type="text" id="nombre" minlength="3" required>
+            </div>
+            <div class="form-group">
+                <label for="cupo">Cupo de alumnos</label>
+                <input name="cupo" type="number" id="cupo" min="1" required>
+            </div>
+            <div class="form-group">
+                <label for="anio">Año</label>
+                <input name="anio" type="number" id="anio" min="1" required>
+            </div>
+            <div class="form-group">
+                <label for="profesor" class="widthLabel">Profesor</label>
+                <select name="profesor" id="profesor">
+                    {% for profesor in profesores %}
+                        <option value={{profesor['id']}}>{{profesor['apellido']}} {{profesor['nombre']}}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="cuatrimestre" class="widthLabel">Cuatrimestre</label>
+                <select name="cuatrimestre" id="cuatrimestre">
+                    <option value="1">Primer cuatrimestre</option>
+                    <option value="2">Segundo cuatrimestre</option>
+                    <option value="3">Tercer cuatrimestre</option>
+                    <option value="4">Cuarto cuatrimestre</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="turno" class="widthLabel">Turno</label>
+                <select name="turno" id="turno">
+                    <option value="Mañana">Mañana</option>
+                    <option value="Tarde">Tarde</option>
+                    <option value="Noche">Noche</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <button class="button">Crear</button>
+            </div>
+        </form>
+    </div>
+</section>
+{% endblock %}
